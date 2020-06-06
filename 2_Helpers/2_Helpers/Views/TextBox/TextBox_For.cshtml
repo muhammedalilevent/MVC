@@ -1,0 +1,85 @@
+﻿@model _2_Helpers.Models.VM.TextBoxVM
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .renk {
+        color: red;
+    }
+</style>
+
+<!--
+    Html.TextBoxFor() Sizden expression olarak parametreler istemektedir
+
+    NOT : value tiplerde eğer değer Nullable değil ise   data-val-required="The Cinsiyet field is required."   parametresini ilgili kontrole otomatik olarak atayacaktır.
+-->
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+-->
+@Html.TextBoxFor(x=>x.Personel.Ad)
+
+@* <input id="Personel_Ad" name="Personel.Ad" type="text" value="Bilal"> *@
+<div style="margin:20px;"></div>
+<!--2. Kullanım
+    2. Kullanım Parametreleri;
+       1) "id" ve "name"  atribute değerleri için parametre
+       2) Html Atribute değerlerini belirleyebilmeniz için gerekli alan
+-->
+@Html.TextBoxFor(x=>x.Personel.Ad,new { @class = "renk" })
+
+@* <input class="renk" id="Personel_Ad" name="Personel.Ad" type="text" value="Bilal"> *@
+
+<!--3. Kullanım
+    3. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için "string" olarak "format"
+-->
+<div style="margin:20px;"></div>
+@Html.TextBoxFor(x=>x.Personel.DogumTarihi, "{0:yyyy/MM/dd}")
+
+@* <input data-val="true" data-val-date="The field DogumTarihi must be a date." data-val-required="DogumTarihi alanı gereklidir." id="Personel_DogumTarihi" name="Personel.DogumTarihi" type="text" value="1982/12/05"> *@
+
+<!--4. Kullanım
+    4. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) Birden fazla Attribute değeri verebilmeniz için Dictionary olarak bir dizi ister
+-->
+<div style="margin:20px;"></div>
+
+@Html.TextBoxFor(x=>x.Personel.Ad, 
+    new Dictionary<string, object>() {
+    { "id","personelAdi" },
+    { "class","renk" },
+    { "placeholder","Bu Alana Adınızı Yazınız" },
+    { "data-id",Model.Personel.Id }
+})
+
+@* <input class="renk" data-id="1" id="personelAdi" name="Personel.Ad" placeholder="Bu Alana Adınızı Yazınız" type="text" value="Bilal"> *@
+
+<!--5. Kullanım
+    5. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için string olarak format
+       3) Html Atribute değerlerini belirleyebilmeniz için gerekli alan
+-->
+<div style="margin:20px;"></div>
+@Html.TextBoxFor(x => x.Personel.DogumTarihi, "{0:yyyy/MM/dd}",new { @style = "color:green" })
+
+@* <input id="Personel_DogumTarihi" name="Personel.DogumTarihi" style="color:green" type="text" value="1982/12/05"> *@
+
+<!--6. Kullanım
+    6. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için string olarak format
+       3) Birden fazla Attribute değeri verebilmeniz için Dictionary olarak bir dizi ister
+-->
+<div style="margin:20px;"></div>
+@Html.TextBoxFor(x => x.Personel.DogumTarihi, "{0:yyyy/MM/dd}", 
+    new Dictionary<string, object>() {
+    { "class","renk" },
+    { "placeholder","Bu Alana Doğum Tarihinizi Yazınız" },
+    { "data-id",Model.Personel.Id }
+})
+
+@* <input class="renk" data-id="1" id="Personel_DogumTarihi" name="Personel.DogumTarihi" placeholder="Bu Alana Doğum Tarihinizi Yazınız" type="text" value="1982/12/05"> *@

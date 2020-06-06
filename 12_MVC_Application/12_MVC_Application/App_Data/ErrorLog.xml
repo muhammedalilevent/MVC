@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Hatalar>
+  <Hata>
+    <HataMesaji>A public action method 'Test' was not found on controller '_12_MVC_Application.Controllers.HomeController'.</HataMesaji>
+    <HataTarihi>07/07/2018 17:29:31</HataTarihi>
+    <MakineIP>::1</MakineIP>
+  </Hata>
+  <Hata>
+    <HataMesaji>A public action method 'Test' was not found on controller '_12_MVC_Application.Controllers.HomeController'.</HataMesaji>
+    <HataTarihi>07/07/2018 17:29:43</HataTarihi>
+    <MakineIP>::1</MakineIP>
+  </Hata>
+  <Hata>
+    <HataMesaji>A public action method 'Test' was not found on controller '_12_MVC_Application.Controllers.HomeController'.</HataMesaji>
+    <HataTarihi>07/07/2018 17:29:57</HataTarihi>
+    <MakineIP>::1</MakineIP>
+  </Hata>
+  <Hata>
+    <HataMesaji>A public action method 'Test' was not found on controller '_12_MVC_Application.Controllers.HomeController'.</HataMesaji>
+    <HataTarihi>07/07/2018 17:30:05</HataTarihi>
+    <MakineIP>::1</MakineIP>
+  </Hata>
+</Hatalar>

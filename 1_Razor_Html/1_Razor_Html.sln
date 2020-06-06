@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_Razor_Html", "1_Razor_Html\1_Razor_Html.csproj", "{AAEEE76E-6E30-4216-A91F-7FCF7BAC6C83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAEEE76E-6E30-4216-A91F-7FCF7BAC6C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEEE76E-6E30-4216-A91F-7FCF7BAC6C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEEE76E-6E30-4216-A91F-7FCF7BAC6C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEEE76E-6E30-4216-A91F-7FCF7BAC6C83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" style="margin-top:50px;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <button id="btnLogin" class="btn btn-info">Login Sayfasına Git</button>
+                <button id="LoginJQuery" class="btn btn-info">LoginJQuery Sayfasına Git</button>
+                @Html.ActionLink("Cookie Temizle","ClearCookie","Login",new {@class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnLogin").click(function () {
+            window.location.href = "/Login/Login";
+        });
+        $("#LoginJQuery").click(function () {
+            window.location.href = "/Login/LoginJQuery";
+        });
+    });
+</script>

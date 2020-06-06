@@ -1,0 +1,18 @@
+﻿@model _2_Helpers.Models.Category
+@{
+    Layout = null;
+}
+
+<!--
+
+     Html.Action metodu, partial view'i Html-encoded string olarak çözümler.
+
+     Kullanım Olarak; Tanımlanan PartialView'ın Controller içerisinde Action'ı olmak zorundadır.  Html.Partial()'dan farkı; Html.Action() sizden bir action ve view isterken, Html.Partial'ın Action'ı olma zorunluğu yoktur.
+
+
+    Not : Eğer Göstermek istediğiniz Action "ActionResult" olarak tanımlı ise, tüm tag'lar ile yüklenir. PartialViewResult döner ise sadece sizin içerisinde tanımladığınız bölümler görünecektir.
+-->
+
+<h1>@Model.CategoryName</h1>
+<hr />
+@Html.Action("_PartilAction", new { id = Model.CategoryID })

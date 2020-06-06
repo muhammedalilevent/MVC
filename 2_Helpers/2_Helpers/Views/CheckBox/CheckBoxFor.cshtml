@@ -1,0 +1,50 @@
+﻿@model _2_Helpers.Models.VM.TextBoxVM
+@{
+    Layout = null;
+}
+
+<style type="text/css">
+    .renk {
+        color: red;
+    }
+</style>
+
+<!----------------------------------------------------------------------------------------->
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+
+    NOT : value tiplerde eğer değer Nullable değil ise   data-val-required="The Cinsiyet field is required."   parametresini ilgili kontrole otomatil olarak atayacaktır.
+-->
+
+Erkek : @Html.CheckBoxFor(x=>x.Personel.Cinsiyet)
+
+@* <input data-val="true" data-val-required="Cinsiyet alanı gereklidir." id="Personel_Cinsiyet" name="Personel.Cinsiyet" type="checkbox" value="true" /><input name="Personel.Cinsiyet" type="hidden" value="false" />
+*@
+
+<hr />
+<!----------------------------------------------------------------------------------------->
+<!--2. Kullanım
+    2. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) Html Atribute değerlerini belirleyebilmeniz için gerekli alan
+-->
+Erkek : @Html.CheckBoxFor(x => x.Personel.Cinsiyet, new { @style = "margin:100px;" })
+
+@* <input id="Personel_Cinsiyet" name="Personel.Cinsiyet" style="margin:100px;" type="checkbox" value="true" /><input name="Personel.Cinsiyet" type="hidden" value="false" />
+*@
+<hr />
+<!--3. Kullanım
+    3. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) Birden fazla Attribute değeri verebilmeniz için Dictionary olarak bir dizi ister
+
+-->
+
+Erkek : @Html.CheckBoxFor(x => x.Personel.Cinsiyet, 
+       new Dictionary<string, object>() {
+    { "id","cinsiyet" },
+    { "class","renk" }
+})
+
+@* <input class="renk" id="cinsiyet" name="Personel.Cinsiyet" type="checkbox" value="true" /><input name="Personel.Cinsiyet" type="hidden" value="false" /> *@

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Raw(CustomHelper.SayfayaGit("Index"))
+
+@* <a href="Index">Index</a> *@
+<hr />
+
+@Html.Raw(CustomHelper.SayfayaGit("Index"))
+
+<hr />
+
+@Html.SayfayaGit("Index", "Anasayfa", "btnAnaSayfa","color:red", "btn btn-Info")
+@* <a class="btn btn-Info" href="Index" style="color:red">Anasayfa</a> *@
+<hr />
+
+@Html.Resim("http://www.basinbulteni.com/sirket_logos/bilge_adam_logo_amblem.jpg", "Bilge Adam Akademi", 500, 200);
+
+@* <img height="200" src="http://www.basinbulteni.com/sirket_logos/bilge_adam_logo_amblem.jpg" title="Bilge Adam Akademi" width="500"> *@
+
+<hr />
+
+@Html.DeleteActionLink("Ürün Sil","Delete","Home",new { id = 1 },new { @class = "btn btn-danger", @style = "margin-top:50px" })
+
+@* <a class="btn btn-danger" href="/Home/Delete/1" rel="nofollow" style="margin-top:50px">Ürün Sil</a> *@
+
+<hr />
+
+@Html.UpdateButton("Home","Edit",new { id = 1, category= 2 },new { @class = "btn btn-warning" , @style = "margin-top:50px" },new { @class = "glyphicon glyphicon-edit" })
+
+@* <a class="btn btn-warning" href="/Home/Edit/1/2" style="margin-top:50px">
+    <span class="glyphicon glyphicon-edit"></span>
+    </a> *@

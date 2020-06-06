@@ -1,0 +1,124 @@
+﻿@model _15_MVC_Cookie.Models.UserVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+
+
+    <div class="form-horizontal">
+        <h4>UserVM</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remember, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Remember)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="btnLogin" type="button" class="btn btn-success btn-block" value="JQuery" >
+            </div>
+        </div>
+    </div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/scripts/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var cook = $.cookie("login");
+        if (cook != null) {
+            var gelenCookie = JSON.parse(cook);
+            $("#UserName").val(gelenCookie.UserName);
+            $("#Password").val(gelenCookie.Password);
+        }
+        $("#btnLogin").click(function () {
+            var user = $("#UserName").val();
+            var pass = $("#Password").val();
+            if ($("#Remember").val() == "true") {
+                var userInfo = { UserName: user, Password: pass };
+                $.cookie.Json = true;
+                $.cookie.raw = true;
+
+                var UserInformation = JSON.stringify(userInfo);
+                $.cookie("login", UserInformation, { expires: 15 });
+                window.location.href = "/Login/Index";
+            }
+        });
+    });
+</script>
+
+<!--
+
+Jquery Cookie Kullanım
+
+    Cookie Oluşturma
+    $.cookie('name','value');
+    $.cookie('nothing'); // => tanımsız
+
+--------------------------------------------------
+    Cookie oturum süresi belirleme
+    $.cookie('name', 'value', { expires: 15 });
+
+--------------------------------------------------
+    Sitenin tamamında geçerli süresi dolan çerez oluşturma
+    $.cookie('name', 'value', { expires: 15, path: '/' });
+
+--------------------------------------------------
+    Cookie Okuma
+    var gelenCookie = $cookie.('name');
+
+
+    Var olan tüm cookie'leri okuma
+    var gelenCookiler = $.cookie();
+
+--------------------------------------------------
+    Var olan cookie silme
+
+    Eğer silme işlemi başarılı olursa "true", başarısız olur ise "false" değerini döner
+    $.removeCookie('name'); // => true
+    $.removeCookie('nothing'); // => false
+
+    Silme işlemin de eğer "path" belirtilmiş ise, aynı bilgileri girerek silme işlemi gerçekleştirmeliyiz.
+    $.cookie('name', 'value', { path: '/' });
+
+    Hatalı kullanım. "false" değeri teslim eder.
+    $.removeCookie('name'); // => false
+
+    Doğru kullanım şekli
+    $.removeCookie('name', { path: '/' }); // => true
+
+--------------------------------------------------
+    Cookie içerisindeki bilgilerin gizlenmesi
+    $.cookie.raw = true;
+
+    Kullanım için 2 metot vardır.
+    encodeURIComponent/decodeURIComponent
+
+--------------------------------------------------
+
+    Json Kullanımı
+
+    $.cookie.json = true; Aktif hale getirdikten sonra kullanmanız gereken 2 metot vardır.
+
+    JSON.stringify ve JSON.parse
+
+-->

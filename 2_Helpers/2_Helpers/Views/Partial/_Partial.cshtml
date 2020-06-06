@@ -1,0 +1,40 @@
+﻿@model int?
+@{
+    int gelenSayi = Convert.ToInt32(ViewData["sayilar"]);
+    string gelenharfler = ViewData["harfler"].ToString();
+}
+
+@gelenSayi
+@gelenharfler
+@Model
+
+
+@*
+    3.Kullanım
+    @{
+        int gelenSayi = Convert.ToInt32(ViewData["sayilar"]);
+        string gelenharfler = ViewData["harfler"].ToString();
+    }
+
+    @gelenSayi
+    @gelenharfler
+
+*@
+
+
+@*
+    2. Kullanım
+
+    @model int?
+
+    @Model
+*@
+
+@* 1.Kullanım
+       <div style='background-color:red;width:900px;height:100px'>
+
+    </div>
+
+*@
+
+

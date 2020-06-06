@@ -1,0 +1,24 @@
+﻿@model _2_Helpers.Models.Category
+@{
+    Layout = null;
+}
+
+<!--
+
+     Html.Display() => Model içerisindeki değeri tag kullanmadan string olarak ekrana yazdırır.
+-->
+
+<!----------------------------------------------------------------------------------------->
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) Model içerisindeki gösterilmek istenen property adı verilir.
+
+-->
+
+@Html.Display("CategoryName")
+
+<hr />
+
+@Html.DisplayFor(x=>x.CategoryName)
+
+

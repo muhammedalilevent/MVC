@@ -1,0 +1,75 @@
+﻿@model _11_MVC_AJAX.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div id="alertMessage" style="display:none;" class="alert alert-dismissable fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true"></span>
+    </button>
+    <p></p>
+</div>   
+
+<div id="loading" style="top:17%;left:47%; position:absolute; display:none">
+    <img width="100" height="100" src="~/Content/Images/loading.gif" />
+</div>
+
+@using (Ajax.BeginForm("Create","Category",new AjaxOptions {
+    OnSuccess = "success",
+    LoadingElementId = "loading",
+    HttpMethod = "POST"
+}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Category</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@section script{
+    <script type="text/javascript">
+        function success(result) {
+            $("#alertMessage").removeAttr("style");
+            if (result.IsSuccess == true) {
+                $("form")[0].reset();
+                $("#alertMessage").addClass("alert-success");
+            }
+            else {
+                $("#alertMessage").addClass("alert-danger");
+            }
+            $("#alertMessage p").text(result.UserMessage);
+            setTimeout(function () {
+                $("#alertMessage").slideUp(2000);
+            }, 2000);
+        }
+    </script>
+    }

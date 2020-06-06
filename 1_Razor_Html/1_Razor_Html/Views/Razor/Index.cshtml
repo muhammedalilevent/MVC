@@ -1,0 +1,30 @@
+﻿@*
+ Razor 
+ ile 
+ çoklu
+ yorum    
+*@
+<h3>Razor ile Ekrana Değişken Yazdırma</h3>
+@{ 
+    string ad = "Bilal";
+    string soyad = "YILMAZ";
+}
+<b>@ad</b><br />
+<b>@soyad</b>
+
+<br />
+<h3>Razor ile Karar yapıları</h3>
+@if (ad != null)
+{
+    <span>Boş değil</span>
+}
+else
+{
+    <span>İsim Boş</span>
+}
+
+<h3> Razor ile döngüler</h3>
+@for (int i = 0; i < 10; i++)
+{
+    @ad @i <br />
+}

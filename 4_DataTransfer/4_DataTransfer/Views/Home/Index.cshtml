@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" style="margin-top:50px;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h3>ViewBag</h3>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori ID</th>
+                                        <th>Kategori Adı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.KategoriListesi)
+                                    {
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.KategoriAdi</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>ViewData</h3>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori ID</th>
+                                        <th>Kategori Adı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewData["KategoriListesi"] as List<_4_DataTransfer.Models.Kategori>)
+                                    {
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.KategoriAdi</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            @Html.ActionLink("Kategori Sayfasın Git", "Category",null,new { @class = "btn btn-primary btn block"})
+        </div>
+    </div>
+</div>

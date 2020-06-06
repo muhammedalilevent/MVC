@@ -1,0 +1,46 @@
+﻿@model _11_MVC_AJAX.Models.Product
+
+<style type="text/css">
+    .tomato {
+        color:tomato;
+    }
+</style>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="tomato">
+            Ürün Adı :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt class="tomato">
+            Ürün Fiyat :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt class="tomato">
+            Ürün Stok Adet :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitsInStock)
+        </dd>
+
+        <dt class="tomato">
+            Kategori Adı :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+    </dl>
+</div>

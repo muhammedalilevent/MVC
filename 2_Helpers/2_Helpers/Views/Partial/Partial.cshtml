@@ -1,0 +1,45 @@
+﻿@model _2_Helpers.Models.Category
+@{
+    Layout = null;
+}
+
+<!--
+
+     Html.Partial metodu, partial view'i Html-encoded string olarak çözümler. Html.Partial metodunun çıktısı string türünde değer döndürdüğü için değişkende saklanabilir.
+
+     Kullanım Olarak; Tanımlanan PartialView'ın Controller içerisinde Action'ı olmak zorunda değildir.  Html.Action()'dan farkı; Html.Action() sizden bir action ve view isterken, Html.Partial'da Action'ı olma zorunluğu yoktur.
+
+
+    Not : Eğer Göstermek istediğiniz Action "ActionResult" olarak tanımlı ise, tüm taglar ile yüklenir. PartialViewResult döner ise sadece sizin içerisinde tanımladığınız bölümler görünecektir.
+-->
+<!----------------------------------------------------------------------------------------->
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) Aynı Controller İçerisindeki Action Adını verirseniz o Action Sayfa içerisinde konumlandırılacaktır.
+-->
+@*@Html.Partial("_Partial")*@
+
+<hr />
+
+<!----------------------------------------------------------------------------------------->
+<!--2. Kullanım
+    2. Kullanım Parametreleri;
+       1) Aynı Controller İçerisindeki Action Adını verirseniz o Action Sayfa içerisinde konumlandırılacaktır.
+       2) Object tipinde değer ister. Sayfa içerisinde göstermek istediğiniz değeri Partial içerisinde Model'den yakalayabilirsiniz.
+-->
+
+@*@Html.Partial("_Partial",3456)*@
+
+
+
+@*@Html.Partial("_Partial", new ViewDataDictionary { { "sayilar", 0321321 },{ "harfler", "sasaas"  } })*@
+
+
+@*@Html.Partial("_Partial",Model.CategoryID,
+    new ViewDataDictionary {
+        { "sayilar", 0321321 },
+        { "harfler", "sasaas" }
+    })*@
+
+@*@Html.Partial("~/Views/Deneme/_Menu.cshtml",ViewBag.Menu as List<_2_Helpers.Models.VM.MenuVM>)*@
+@Html.Action("Menu")

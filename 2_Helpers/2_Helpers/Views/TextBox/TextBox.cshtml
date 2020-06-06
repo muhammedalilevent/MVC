@@ -1,0 +1,97 @@
+﻿@model _2_Helpers.Models.VM.TextBoxVM
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .renk{
+        color:red;
+    }
+</style>
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+-->
+@Html.TextBox("ad")
+@* <input id="ad" name="ad" type="text" value=""> *@
+
+<!--2. Kullanım
+    2. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+-->
+<div style="margin:20px;"></div>
+@Html.TextBox("ad","İkinci Kullanım")
+@* <input id="ad" name="ad" type="text" value="İkinci Kullanım"> *@
+
+<!--3. Kullanım
+    3. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+       3) Html Atribute değerlerini belirleyebilmeniz için gerekli alan
+-->
+<div style="margin:20px;"></div>
+@Html.TextBox("ad", "İkinci Kullanım",new { @class = "renk" , id="txtAd" })
+@Html.TextBox("ad", null, new { @class = "renk", @placeholder = "Bu Alana Adınızı Yazınız!...", id = "txtAd" })
+@* <input class="renk" id="txtAd" name="ad" type="text" value="İkinci Kullanım"> *@
+@* <input class="renk" id="txtAd" name="ad" placeholder="Bu Alana Adınızı Yazınız!..." type="text" value=""> *@
+
+
+<!--4. Kullanım
+    4. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+       3) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için "string" olarak "format"
+-->
+
+<div style="margin:20px;"></div>
+@Html.TextBox(Model.Personel.Ad,Model.Personel.DogumTarihi,"{0:yyyy/MM/dd}")
+
+@* <input id="Bilal" name="Bilal" type="text" value="1982/12/05"> *@
+
+<!--5. Kullanım
+    5. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+       3) Birden fazla Attribute değeri verebilmeniz için Dictionary olarak bir dizi ister
+-->
+<div style="margin:20px;"></div>
+@Html.TextBox("Ad",Model.Personel.Ad,
+    new Dictionary<string, object>() {
+    { "id","personelAdi" },
+    { "class","renk" },
+    { "placeholder","Bu Alana Adınızı Yazınız" },
+    { "data-id",Model.Personel.Id }
+})
+@* <input class="renk" data-id="1" id="personelAdi" name="Ad" placeholder="Bu Alana Adınızı Yazınız" type="text" value="Bilal">
+*@
+
+<!--6. Kullanım
+    6. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+       3) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için string olarak format
+       4) Html Atribute değerlerini belirleyebilmeniz için gerekli alan
+-->
+<div style="margin:20px;"></div>
+
+@Html.TextBox(Model.Personel.Ad, Model.Personel.DogumTarihi, "{0:yyyy/MM/dd}",new { @style = "color:red" })
+
+@* <input id="Bilal" name="Bilal" style="color:red" type="text" value="1982/12/05"> *@
+
+<!--7. Kullanım
+    7. Kullanım Parametreleri;
+       1) "id" ve "name" atribute değerleri için parametre
+       2) TextBox içerisinde görünmesini istediğiniz değer
+       3) TextBox içerisinde görünmesini istediğiniz değeri formatlamak için string olarak format
+       4) Birden fazla Attribute değeri verebilmeniz için Dictionary olarak bir dizi ister
+-->
+<div style="margin:20px;"></div>
+@Html.TextBox(Model.Personel.Ad, Model.Personel.DogumTarihi, "{0:yyyy/MM/dd}", 
+    new Dictionary<string, object>() {
+    { "class","renk" },
+    { "placeholder","Bu Alana Doğum Tarihi Yazınız" },
+    { "data-id",Model.Personel.Id }
+})
+
+@* <input class="renk" data-id="1" id="Bilal" name="Bilal" placeholder="Bu Alana Doğum Yazınız" type="text" value="1982/12/05"> *@
+

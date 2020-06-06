@@ -1,0 +1,16 @@
+﻿
+@model _2_Helpers.Models.Tasarim
+
+<!--
+
+    Html.Raw() => web form tarafındaki literal kontrolünün karşılığıdır. içerisinde html kodlarını encode edebilirsiniz.
+-->
+<!----------------------------------------------------------------------------------------->
+<!--1. Kullanım
+    1. Kullanım Parametreleri;
+       1) object olarak sizden sayfada gösterilecek olan değeri ister.
+
+-->
+@Html.Raw(Model.Sayfa)
+<hr />
+@Html.Raw("<div style='background-color:green;width:100px;height:100px'></div>")

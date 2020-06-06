@@ -1,0 +1,29 @@
+﻿@model _10_Grid_MVC.Models.PagedList<_10_Grid_MVC.Models.Product>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" style="margin-top:100px;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-lg-12">
+                @Html.Grid(Model.Content).Columns(c=>
+           {
+               c.Add(p => p.ProductID).Titled("Ürün ID").Encoded(false).Filterable(true).Sanitized(false);
+               c.Add(p => p.ProductName).Titled("Ürün Adı").Encoded(false).Filterable(true).Sanitized(false);
+               c.Add(p => p.UnitsInStock).Titled("Miktar").Encoded(false).Filterable(true).Sanitized(false);
+               c.Add(p => p.UnitPrice).Titled("Fiyat").Encoded(false).Filterable(true).Sanitized(false);
+               c.Add(p => p.Category.CategoryName).Titled("Kategori Adı").Encoded(false).Filterable(true).Sanitized(false);
+               c.Add()
+               .Encoded(false)
+               .Sanitized(false)
+               .SetWidth(150)
+               .RenderValueAs(data => new HtmlString(
+                   "<button type='button' class='btn btn-danger' data-id='" + data.ProductID + "' id='btnProductSil'>Sil</button><button type='button' class='btn btn-warning' data-id='" + data.ProductID + "' id='btnProductGuncelle'>Güncelle</button>"
+                   ));
+           }).WithPaging(Model.PageSize).Sortable()
+            </div>
+        </div>
+    </div>
+</div>
